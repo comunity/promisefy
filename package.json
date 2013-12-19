@@ -7,14 +7,15 @@
     "url": "git://github.com/comunity/promisefy.git"
   },
   "main": "index.js",
-  "scripts": {
-  },
   "homepage": "https://github.com/comunity/promisefy",
-  "dependencies": {},
+  "dependencies": {
+    "q": "*",
+    "mkdirp": "*"
+    },
   "devDependencies": {},
   "author": {
     "name": "Hans Malherbe",
     "email": "hansm@comunity.co.za",
     "url": "http://www.comunity.co.za"
-  },
+  }
 }
