@@ -1,7 +1,7 @@
 {
   "name": "promisefy",
   "description": "Turn common callbacks into promises",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/comunity/promisefy.git"
@@ -12,6 +12,7 @@
     "q": "*",
     "mkdirp": "*"
     },
+  "license": "MIT",
   "devDependencies": {},
   "author": {
     "name": "Hans Malherbe",
