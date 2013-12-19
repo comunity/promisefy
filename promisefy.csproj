@@ -58,5 +58,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="index.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="nm\promisefy\index.ts" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
