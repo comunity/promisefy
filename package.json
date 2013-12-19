@@ -1,0 +1,20 @@
+{
+  "name": "promisefy",
+  "description": "Turn common callbacks into promises",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/comunity/promisefy.git"
+  },
+  "main": "index.js",
+  "scripts": {
+  },
+  "homepage": "https://github.com/comunity/promisefy",
+  "dependencies": {},
+  "devDependencies": {},
+  "author": {
+    "name": "Hans Malherbe",
+    "email": "hansm@comunity.co.za",
+    "url": "http://www.comunity.co.za"
+  },
+}
