@@ -60,9 +60,11 @@ function pipe(is, os) {
 }
 exports.pipe = pipe;
 
-function writeFile(filename, data) {
+function writeFile(filename, data, overwrite) {
     var time = process.hrtime(), deferred = Q.defer();
-    fs.writeFile(filename, data, function (err) {
+    fs.writeFile(filename, data, {
+        flag: overwrite ? 'w' : 'wx'
+    }, function (err) {
         if (err)
             return deferred.reject(err);
         deferred.resolve(process.hrtime(time));
@@ -72,7 +74,8 @@ function writeFile(filename, data) {
 exports.writeFile = writeFile;
 
 function readFile(filename) {
-    var time = process.hrtime(), deferred = Q.defer();
+    var time = process.hrtime();
+    var deferred = Q.defer();
     fs.readFile(filename, function (err, data) {
         if (err)
             return deferred.reject(err);

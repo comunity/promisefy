@@ -4,6 +4,6 @@ declare module 'promisefy' {
 	export function fileExists(path: string): Q.Promise<boolean>;
 	export function mkdirp(path: string): Q.Promise<string>;
 	export function pipe(is: stream.ReadableStream, os: stream.WritableStream): Q.Promise<number[]>;
-	export function writeFile(filename: string, data: any): Q.Promise<number[]>;
+	export function writeFile(filename: string, data: any, overwrite: boolean): Q.Promise<number[]>;
 	export function readFile(filename: string): Q.Promise<NodeBuffer>;
 }

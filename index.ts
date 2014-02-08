@@ -51,10 +51,12 @@ export function pipe(is: stream.ReadableStream, os: stream.WritableStream): Q.Pr
     return deferred.promise
 }
 
-export function writeFile(filename: string, data: any): Q.Promise<number[]> {
+export function writeFile(filename: string, data: any, overwrite: boolean): Q.Promise<number[]> {
     var time = process.hrtime()
         , deferred: Q.Deferred<number[]> = Q.defer<number[]>()
-    fs.writeFile(filename, data, err => {
+    fs.writeFile(filename, data, {
+        flag: overwrite ? 'w' : 'wx'
+    }, err => {
         if (err)
             return deferred.reject(err)
         deferred.resolve(process.hrtime(time))
@@ -64,7 +66,7 @@ export function writeFile(filename: string, data: any): Q.Promise<number[]> {
 
 export function readFile(filename: string): Q.Promise<NodeBuffer> {
     var time = process.hrtime()
-        , deferred: Q.Deferred<NodeBuffer> = Q.defer<NodeBuffer>()
+    var deferred: Q.Deferred<NodeBuffer> = Q.defer<NodeBuffer>()
     fs.readFile(filename, (err, data) => {
         if (err)
             return deferred.reject(err)
