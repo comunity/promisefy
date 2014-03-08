@@ -36,7 +36,7 @@ export function mkdirp(path: string): Q.Promise<string> {
     return deferred.promise
 }
 
-export function pipe(is: stream.ReadableStream, os: stream.WritableStream): Q.Promise<number[]> {
+export function pipe(is: stream.Readable, os: stream.Writable): Q.Promise<number[]> {
     var time = process.hrtime()
         , deferred: Q.Deferred<number[]> = Q.defer<number[]>()
     is.on('error', err => deferred.reject(err))
