@@ -16,9 +16,11 @@ exports.fold = fold;
 function fileExists(path) {
     var deferred = Q.defer();
     fs.exists(path, function (exists) {
-        if (exists)
-            deferred.resolve(true);
-        else
+        if (exists) {
+            fs.stat(path, function (err, stats) {
+                deferred.resolve(stats.isFile());
+            });
+        } else
             deferred.resolve(false);
     });
     return deferred.promise;

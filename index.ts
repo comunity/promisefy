@@ -17,8 +17,11 @@ export function fold<T>(x: Q.Promise<Q.Promise<T>>): Q.Promise<T> {
 export function fileExists(path: string): Q.Promise<boolean> {
     var deferred: Q.Deferred<boolean> = Q.defer<boolean>()
     fs.exists(path, exists => {
-        if (exists)
-            deferred.resolve(true)
+        if (exists) {
+            fs.stat(path, (err, stats) => {
+                deferred.resolve(stats.isFile())
+            })
+        }
         else
             deferred.resolve(false)
     })
